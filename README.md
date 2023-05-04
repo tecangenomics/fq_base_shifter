@@ -33,7 +33,7 @@ Optional
     Defaults to 21
 -s: An integer corresponding to the number of bases to move from the source sequence. 
     A positive number corresponds to moving the bases from the 5' end and a negative the 3' end.
-    Defaults to -8
+    Defaults to -6
 -d: Either 3 or 5. Corresponds to whether we want the sequence to be moved to the 3' or 5' end of
     the destination fastq file.
     Defaults to 5
