@@ -28,7 +28,7 @@ def get_arguments():
                         default='21', type=str, choices=['11','12','21','22'])
     parser.add_argument('-s', '--source_position', 
                         help='source sequence; integer means to pull the first n bases; positive is from 5-prime end and negative is from 3 prime', 
-                        default=-8, type=int)
+                        default=-6, type=int)
     parser.add_argument('-d', '--destination', help='where to put the source sequence; set to 5 for 5-prime and 3 for 3-prime', choices=[5,3], type=int, default=5)
     return parser.parse_args()
 
