@@ -1,5 +1,5 @@
 # Intro
-This code was written for https://t-gn.atlassian.net/jira/software/projects/TTTS/boards/9?selectedIssue=TTTS-48. The customer wants to perform umi deduplication using umi-tools. According to the documentation(https://umi-tools.readthedocs.io/en/latest/QUICK_START.html#paired-end-sequencing), *the UMI sequence should be on the 5' end of R1, however the UMI in the data is at the 3' end of R2*
+The customer wants to perform umi deduplication using umi-tools. According to the documentation(https://umi-tools.readthedocs.io/en/latest/QUICK_START.html#paired-end-sequencing), *the UMI sequence should be on the 5' end of R1, however the UMI in the data is at the 3' end of R2*
 
 
 This code will move some number of basepairs from some end of some fastq to some end of the same or another fastq.
