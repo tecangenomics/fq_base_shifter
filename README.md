@@ -9,7 +9,7 @@ python 3.xx
 
 # Usage
 ## Quickstart
-This code will, by default, move the last 8 bases (and quality scores) of R2 to the beginning of R1:
+This code will, by default, move the last 6 bases (and quality scores) of R2 to the beginning of R1:
 
 `python move_fastq_bases.py -i1 input-R1.fq -i2 input-R2.fq -o1 output-R1.fq -o2 output-R2.fq`
 
