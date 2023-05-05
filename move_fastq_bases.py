@@ -74,11 +74,12 @@ def shift_bases(arguments) -> None:
     Outputs
         new fastq1 and fastq2 files
     """
+    line_counter = 0 # only modify lines tnat are even (%2 == 0)
     with open(arguments.fq1_in, 'r') as i1, open(arguments.fq2_in, 'r') as i2, open(arguments.fq1_out, 'w') as o1, open(arguments.fq2_out, 'w') as o2:
         for line1, line2 in zip(i1, i2):
+            line_counter += 1
             # If sequence name (starts with "@" or "+"), just output line as no processing needed
-            if (line1.startswith('@') and line2.startswith('@')) or \
-                (line1.startswith('+') and line2.startswith('+')):
+            if line_counter %2 == 1:
                 o1.write(line1)
                 o2.write(line2)
                 continue
