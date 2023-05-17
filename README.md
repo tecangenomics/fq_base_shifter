@@ -11,10 +11,10 @@ python 3.xx
 ## Quickstart
 This code will, by default, move the last 6 bases (and quality scores) of a source file to a new file.
 
-The command to move last 6 bases of a source file (e.g. R2) to a new and separate file (e.g. one called umi.fq) is:
+The command to move last 6 bases of a source file (e.g. R2) to a new and separate file (e.g. one called umi.fq) is: \
 `python move_fq_seq.py -si reads_R2.fq -do umi.fq`
 
-The command to move the same 6 bases from umi.fq to the 5' end of an R1 file is:
+The command to move the same 6 bases from umi.fq to the 5' end of an R1 file is: \
 `>python move_fq_seq.py -si umi.fq -di reads_R1.fq -do reads_R1_umi.fq -dm 1`
 
 The assumptions made are as follows:
