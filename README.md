@@ -10,8 +10,10 @@ python 3.xx
 # Usage
 ## Quickstart
 This code will, by default, move the last 6 bases (and quality scores) of a source file to a new file.
+Generally, this is how one would modify reads from RRBS in order to perform deduplication with umi tools
+(https://umi-tools.readthedocs.io/en/latest/QUICK_START.html#common-variations)
 
-The command to move last 6 bases of a source file (e.g. R2) to a new and separate file (e.g. one called umi.fq) is: \
+The command to move last 6 bases of a source file (e.g. I1) to a new and separate file (e.g. one called umi.fq) is: \
 `python move_fq_seq.py -si reads_R2.fq -do umi.fq`
 
 The command to move the same 6 bases from umi.fq to the 5' end of an R1 file is: \
