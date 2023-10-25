@@ -28,7 +28,7 @@ def get_arguments():
                         default=None)
     parser.add_argument('-sp', '--s_pos', 
                         help='source sequence to extract; integer means to pull the first n bases; positive is from 5-prime end and negative is from 3 prime', 
-                        default=-6, type=int)
+                        default=-8, type=int)
     parser.add_argument('-dm', '--d_method', 
                         help='1: move sequences between existing files. \n 2: create new destination file with extracted sequences from source', 
                         default='1', type=int, choices=[1, 2])
