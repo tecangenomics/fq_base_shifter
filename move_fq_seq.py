@@ -31,7 +31,7 @@ def get_arguments():
                         default=-6, type=int)
     parser.add_argument('-dm', '--d_method', 
                         help='1: move sequences between existing files. \n 2: create new destination file with extracted sequences from source', 
-                        default='2', type=int, choices=[1, 2])
+                        default='1', type=int, choices=[1, 2])
     parser.add_argument('-dl', '--d_loc', 
                         help='where to put the source sequence; set to 5 for 5-prime and 3 for 3-prime', 
                         default=5, type=int, choices=[5,3])
