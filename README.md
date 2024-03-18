@@ -1,5 +1,9 @@
 # Intro
-The customer wants to perform umi deduplication using umi-tools. According to the documentation(https://umi-tools.readthedocs.io/en/latest/QUICK_START.html#paired-end-sequencing), *the UMI sequence should be on the 5' end of R1, however the UMI in the data is at the 3' end of R2*
+This is for users who want to perform umi deduplication using umi-tools and have the index sequence in separate files (e.g. in an separate index file).
+This code takes in 1 fastq file and moves a number of bases from that fastq file to another or a new file. For the purposes of deduplication with umi-tools,
+One would move the index sequences from the source fastq file to the 5' of a target fastq file followed by downstream deduplication as described by umi-tools.
+
+link to umi-tools: https://umi-tools.readthedocs.io/en/latest/QUICK_START.html#paired-end-sequencing
 
 
 This code will move some number of basepairs from some end of a source fastq to a destination fastq.
