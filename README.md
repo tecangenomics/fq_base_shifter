@@ -15,7 +15,7 @@ To move 8 UMI bases from 3' of a 16 base I1 file to the 5' end of an R1 file, us
 `python base_shift.py -s <I1 fastq containing UMIs> -d <R1 fastq to add UMIs to> -o <output file name>`
 
 To move 6 UMI bases from 3' of a 12 base I1 file to the 5' end of an R1 file, use the following command: \
-`python base_shift.py -s <I1 fastq containing UMIs> -d <R1 fastq to add UMIs to> -o <output file name> -s_len 6`
+`python base_shift.py -s <I1 fastq containing UMIs> -d <R1 fastq to add UMIs to> -o <output file name> -s_len -6`
 
 [fq_base_shifter](https://github.com/tecangenomics/fq_base_shifter/tree/main) assumptions and requirements:
 1. Data must be in uncompressed format.
