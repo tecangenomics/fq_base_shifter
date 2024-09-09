@@ -14,12 +14,14 @@ python 3.xx
 The command to move 8 UMI bases from 3' of 16 base I1 file to the 5' end of an R1 file is: \
 `python base_shift.py -d <fastq to add UMIs to> -s <fastq containing UMIs> -o <output file name>`
 
-[fq_base_shifter](https://github.com/tecangenomics/fq_base_shifter/tree/main) assumptions:
-1. The data are unzipped
-2. The source file is a superset of the destination file (all entries in destination file is in source, but the converse is not necessarily true)
-3. Input file entries are in the same order (not taking into account missing entries)
-4. Bases are moved, not copied. So R1_sequence + R2_sequence remains the same before and after running the code
-5. Only performs operations on the ends of reads, not on the middle of reads (e.g. can't extract bases 10-12)
+[fq_base_shifter](https://github.com/tecangenomics/fq_base_shifter/tree/main) assumptions/rules/defaults:
+1. Data must be in uncompressed format.
+2. The source file is a superset of the destination file (all entries in the destination file are in the source file, but not necessarily vice versa).
+3. Input file sequence entries are in the same order and no entries are missing.
+4. Bases are moved, not copied. The combined length of R1_sequence and R2_sequence remains the same before and after running the code.
+5. Operations are only performed on the ends of reads, not the middle (e.g., cannot extract bases 10-12).
+6. Default length of extracted/moved sequence is 8 bases (adjust with -s_len).
+7. Default target position is 5' (adjust with -d_loc).
 
 ## Additional Options
 When running with the -h option, a list of possible options are provided. Below are explanations of these options:
