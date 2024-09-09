@@ -12,7 +12,7 @@ python 3.xx
 ## Usage
 
 The command to move 8 UMI bases from 3' of 16 base I1 file to the 5' end of an R1 file is: \
-`python move_fq_seq.py -si I1.fq -di R1.fq -so I1_without_UMI.fq -do R1_with_UMI.fq`
+``
 
 [fq_base_shifter](https://github.com/tecangenomics/fq_base_shifter/tree/main) assumptions:
 1. The data are unzipped
