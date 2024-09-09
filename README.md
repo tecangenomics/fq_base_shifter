@@ -25,13 +25,13 @@ The command to move 8 UMI bases from 3' of 16 base I1 file to the 5' end of an R
 When running with the -h option, a list of possible options are provided. Below are explanations of these options:
 ```
 Required
--d: file to add sequence to (e.g. R1 file)
--s: file to get sequences from (e.g. an I1 file containing UMIs)
--o: output file name
+-s: Source file to get sequences from (e.g., an I1 file containing UMIs)
+-d: Destination file to add sequence to (e.g., R1 file)
+-o: Output file name
 
 Optional
--s_len: length of the source sequence to extract. a positive integer means to pull from 5' end and a negative integer means to pull from 3' end
--d_loc: location to place the shifted sequence. set to 5 to move source sequence (e.g. UMIs) to 5' end and set to 3 to move sequence to 3' end
+-s_len: Length of the source sequence to extract. A positive integer extracts from the 5' end, and a negative integer extracts from the 3' end.
+-d_loc: Target position for the shifted sequence. Set to 5 to move the source sequence (e.g., UMIs) to the 5' end, and set to 3 to move the sequence to the 3' end.
 ```
 ---
 
