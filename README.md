@@ -11,29 +11,28 @@ python 3.xx
 
 ## Usage
 
-The command to move 8 UMI bases from 3' of 16 base I1 file to the 5' end of an R1 file is: \
-`python base_shift.py -d <fastq to add UMIs to> -s <fastq containing UMIs> -o <output file name>`
+To move 8 UMI bases from 3' of a 16 base I1 file to the 5' end of an R1 file, use the following command: \
+`python base_shift.py -s <I1 fastq containing UMIs> -d <R1 fastq to add UMIs to> -o <output file name>`
 
-[fq_base_shifter](https://github.com/tecangenomics/fq_base_shifter/tree/main) assumptions/rules/defaults:
+To move 6 UMI bases from 3' of a 12 base I1 file to the 5' end of an R1 file, use the following command: \
+`python base_shift.py -s <I1 fastq containing UMIs> -d <R1 fastq to add UMIs to> -o <output file name> -s_len 6`
+
+[fq_base_shifter](https://github.com/tecangenomics/fq_base_shifter/tree/main) assumptions and requirements:
 1. Data must be in uncompressed format.
 2. The source file is a superset of the destination file (all entries in the destination file are in the source file, but not necessarily vice versa).
 3. Input file sequence entries are in the same order and no entries are missing.
-4. Bases are moved, not copied. The combined length of R1_sequence and R2_sequence remains the same before and after running the code.
-5. Operations are only performed on the ends of reads, not the middle (e.g., cannot extract bases 10-12).
-6. Default length of extracted/moved sequence is 8 bases (adjust with -s_len).
-7. Default target position is 5' (adjust with -d_loc).
 
-## Additional Options
+## Options
 When running with the -h option, a list of possible options are provided. Below are explanations of these options:
 ```
 Required
 -s: Source file to get sequences from (e.g., an I1 file containing UMIs)
 -d: Destination file to add sequence to (e.g., R1 file)
--o: Output file name
+-o: Output file name (new file with UMI sequence prepended to 5' end of R1 sequence)
 
 Optional
--s_len: Length of the source sequence to extract. A positive integer extracts from the 5' end, and a negative integer extracts from the 3' end.
--d_loc: Target position for the shifted sequence. Set to 5 to move the source sequence (e.g., UMIs) to the 5' end, and set to 3 to move the sequence to the 3' end.
+-s_len: Length of the source sequence to extract (default: 8). A positive integer extracts from the 5' end, and a negative integer extracts from the 3' end.
+-d_loc: Target position for the shifted sequence (default 5). Set to 5 to move the source sequence (e.g., UMIs) to the 5' end, and set to 3 to move the sequence to the 3' end.
 ```
 ---
 
