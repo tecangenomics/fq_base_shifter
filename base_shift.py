@@ -15,10 +15,10 @@ def get_arguments():
     parser.add_argument('-s', '--source', help='the file to extract sequences from')
     parser.add_argument('-o', '--output', help='file with source sequences added to destination file')
     parser.add_argument('-s_len', '--sequence_length', 
-                        help='length of the source sequence to extract; positive is from 5-prime end and negative is from 3 prime', 
+                        help='DEFAULT=-8; length of the source sequence to extract; positive is from 5-prime end and negative is from 3 prime', 
                         default=-8, type=int)
     parser.add_argument('-d_loc', '--destination_location', 
-                        help='where to put the source sequence; set to 5 for 5-prime and 3 for 3-prime', 
+                        help='DEFAULT=5; where to put the source sequence; set to 5 for 5-prime and 3 for 3-prime', 
                         default=5, type=int, choices=[5,3])
     return parser.parse_args()
 
