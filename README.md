@@ -12,7 +12,7 @@ python 3.xx
 ## Usage
 
 The command to move 8 UMI bases from 3' of 16 base I1 file to the 5' end of an R1 file is: \
-``
+`python base_shift.py -d <fastq to add UMIs to> -s <fastq containing UMIs> -o <output file name>`
 
 [fq_base_shifter](https://github.com/tecangenomics/fq_base_shifter/tree/main) assumptions:
 1. The data are unzipped
@@ -25,21 +25,13 @@ The command to move 8 UMI bases from 3' of 16 base I1 file to the 5' end of an R
 When running with the -h option, a list of possible options are provided. Below are explanations of these options:
 ```
 Required
--si/-di: These are the input source and destination files. di is not needed if -dm is set to 2
+-d: file to add sequence to (e.g. R1 file)
+-s: file to get sequences from (e.g. an I1 file containing UMIs)
+-o: output file name
 
 Optional
--so/-do: These are the outputs for the source and destination files. If they are not specified, a corresponding file is not created.
-         E.g. if -so is included and -do is NOT included, only a file with bases removed from the source file is generated
--sp: An integer corresponding to the number of bases to move from the source sequence. 
-     A positive number corresponds to moving the bases from the 5' end and a negative the 3' end.
-     Defaults to -6
--dm: Where are we moving sequences to and from? Set to 1 to indicated that sequences are being moved between existing
-     source and destination file. Set to 2 to move sequences from the source file to a new/nonexistent destination file (be careful, as
-     existing filenames matching -do will be overwritten).
-     Defaults to 2
--dl: Either 3 or 5. Corresponds to whether we want the sequence to be moved to the 3' or 5' end of
-     the destination fastq file.
-     Defaults to 5
+-s_len: length of the source sequence to extract. a positive integer means to pull from 5' end and a negative integer means to pull from 3' end
+-d_loc: location to place the shifted sequence. set to 5 to move source sequence (e.g. UMIs) to 5' end and set to 3 to move sequence to 3' end
 ```
 ---
 
