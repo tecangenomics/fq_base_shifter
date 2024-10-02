@@ -11,35 +11,28 @@ python 3.xx
 
 ## Usage
 
-The command to move 8 UMI bases from 3' of 16 base I1 file to the 5' end of an R1 file is: \
-`python move_fq_seq.py -si I1.fq -di R1.fq -so I1_without_UMI.fq -do R1_with_UMI.fq`
+To move 8 UMI bases from 3' of a 16 base I1 file to the 5' end of an R1 file, use the following command: \
+`python base_shift.py -s <I1 fastq containing UMIs> -d <R1 fastq to add UMIs to> -o <output file name>`
 
-[fq_base_shifter](https://github.com/tecangenomics/fq_base_shifter/tree/main) assumptions:
-1. The data are unzipped
-2. The source file is a superset of the destination file (all entries in destination file is in source, but the converse is not necessarily true)
-3. Input file entries are in the same order (not taking into account missing entries)
-4. Bases are moved, not copied. So R1_sequence + R2_sequence remains the same before and after running the code
-5. Only performs operations on the ends of reads, not on the middle of reads (e.g. can't extract bases 10-12)
+To move 6 UMI bases from 3' of a 12 base I1 file to the 5' end of an R1 file, use the following command: \
+`python base_shift.py -s <I1 fastq containing UMIs> -d <R1 fastq to add UMIs to> -o <output file name> -s_len -6`
 
-## Additional Options
+[fq_base_shifter](https://github.com/tecangenomics/fq_base_shifter/tree/main) assumptions and requirements:
+1. Data must be in uncompressed format.
+2. The source file is a superset of the destination file (all entries in the destination file are in the source file, but not necessarily vice versa).
+3. Input file sequence entries are in the same order and no entries are missing.
+
+## Options
 When running with the -h option, a list of possible options are provided. Below are explanations of these options:
 ```
 Required
--si/-di: These are the input source and destination files. di is not needed if -dm is set to 2
+-s: Source file to get sequences from (e.g., an I1 file containing UMIs)
+-d: Destination file to add sequence to (e.g., R1 file)
+-o: Output file name (new file with UMI sequence prepended to 5' end of R1 sequence)
 
 Optional
--so/-do: These are the outputs for the source and destination files. If they are not specified, a corresponding file is not created.
-         E.g. if -so is included and -do is NOT included, only a file with bases removed from the source file is generated
--sp: An integer corresponding to the number of bases to move from the source sequence. 
-     A positive number corresponds to moving the bases from the 5' end and a negative the 3' end.
-     Defaults to -6
--dm: Where are we moving sequences to and from? Set to 1 to indicated that sequences are being moved between existing
-     source and destination file. Set to 2 to move sequences from the source file to a new/nonexistent destination file (be careful, as
-     existing filenames matching -do will be overwritten).
-     Defaults to 2
--dl: Either 3 or 5. Corresponds to whether we want the sequence to be moved to the 3' or 5' end of
-     the destination fastq file.
-     Defaults to 5
+-s_len: Length of the source sequence to extract (default: 8). A positive integer extracts from the 5' end, and a negative integer extracts from the 3' end.
+-d_loc: Target position for the shifted sequence (default 5). Set to 5 to move the source sequence (e.g., UMIs) to the 5' end, and set to 3 to move the sequence to the 3' end.
 ```
 ---
 
